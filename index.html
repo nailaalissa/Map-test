@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Store Locator</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+      .flex {
+        display: flex;
+      }
+      #map {
+        height: 400px;
+        width: 70%;
+      }
+      #info {
+        padding: 10px 10px;
+        border: 1px solid red;
+        height: 400px;
+        width: 30%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- this code from storerocket to show map with filter -->
+    <!-- <div
+      id="storerocket-widget"
+      style="width: 100%"
+      data-storerocket-env="p"
+      data-storerocket-id="vZ4vP5v8Qd"
+    >
+      <p style="text-align: center; font-size: 13px; padding: 10px">
+        Store locator is loading from StoreRocket
+        <a target="_blank" href="https://storerocket.io" style="font-size: 13px"
+          >Store Locator App</a
+        >..
+      </p>
+    </div>
+    <script>
+      (function () {
+        var a = document.createElement('script');
+        a.type = 'text/javascript';
+        a.async = !0;
+        a.src = 'https://cdn.storerocket.io/js/widget-mb.js';
+        var b = document.getElementsByTagName('script')[0];
+        b.parentNode.insertBefore(a, b);
+      })();
+    </script> -->
+    <!-- this code from storerocket to show the  store locator -->
+    <!-- <div
+      id="storerocket-widget"
+      style="width: 100%"
+      data-storerocket-env="p"
+      data-storerocket-id="vZ4vP5v8Qd"
+    >
+      <p style="text-align: center; font-size: 13px; padding: 10px">
+        Store locator is loading from StoreRocket
+        <a target="_blank" href="https://storerocket.io" style="font-size: 13px"
+          >Store Locator App</a
+        >..
+      </p>
+    </div>
+    <script>
+      (function () {
+        var a = document.createElement('script');
+        a.type = 'text/javascript';
+        a.async = !0;
+        a.src = 'https://cdn.storerocket.io/js/widget-mb.js';
+        var b = document.getElementsByTagName('script')[0];
+        b.parentNode.insertBefore(a, b);
+      })();
+    </script> -->
+    <h1>Store Locator</h1>
+    <div class="flex">
+      <div id="info"></div>
+      <div id="map"></div>
+    </div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
