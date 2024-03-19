@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Add markers for H&M and IKEA in Malmö, Sweden</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.1.1/dist/maplibre-gl.css" />
+    <script src="https://unpkg.com/maplibre-gl@4.1.1/dist/maplibre-gl.js"></script>
+    <style>
+      .flex {
+        display: flex;
+      }
+      #map {
+        height: 400px;
+        width: 70%;
+      }
+      #info {
+        padding: 10px 10px;
+        border: 1px solid red;
+        height: 400px;
+        width: 30%;
+        overflow-y: auto;
+      }
+
+      #info {
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Store Locator</h1>
+    <div class="flex">
+      <div id="info"></div>
+      <div id="map"></div>
+      <script>
+        const map = new maplibregl.Map({
+          container: 'map',
+          style:
+            'https://api.maptiler.com/maps/streets/style.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL',
+          center: [13.000003, 55.605015],
+          zoom: 12,
+        });
+
+        const stores = [
+          { name: 'H&M', location: [13.000003, 55.605015], address: 'Stra Varvsgatan 21' },
+          { name: 'IKEA', location: [12.989629, 55.588676], address: 'Tobaksfriplatsen 10' },
+        ];
+
+        const infoDiv = document.getElementById('info');
+
+        stores.forEach((store) => {
+          const marker = new maplibregl.Marker()
+            .setLngLat(store.location)
+            .addTo(map)
+            .setPopup(
+              new maplibregl.Popup().setHTML(`<h3>${store.name}</h3><p>${store.address}</p>`),
+            );
+          marker.on('click', function () {
+            infoDiv.innerHTML = `
+              <strong>Store Name: ${store.name}</strong><br>
+              Address: ${store.address}<br>
+            `;
+          });
+        });
+      </script>
+    </div>
+  </body>
+</html>
